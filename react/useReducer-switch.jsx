@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useReducer } from 'react'
 
 const countReducer = (state, action) => {
   switch (action.type) {
@@ -15,7 +15,7 @@ const countReducer = (state, action) => {
 }
 
 function Counter({initialCount = 0, step = 1}) {
-  const [state, dispatch] = React.useReducer(countReducer, { count: initialCount })
+  const [state, dispatch] = useReducer(countReducer, { count: initialCount })
   const { count } = state
   const increment = () => dispatch({type: 'INCREMENT', step})
   return <button onClick={increment}>{count}</button>
